@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { db } from "../firebase"; // Configuración de Firebase
+/*import React, { useState } from "react";
+import { db } from "../Firebase"; // Configuración de Firebase
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "../hooks/useAuth"; // Hook personalizado para manejar la autenticación
 
@@ -63,4 +63,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddProduct;*/

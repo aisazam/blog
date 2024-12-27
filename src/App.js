@@ -1,17 +1,26 @@
-import React from "react";
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-import { BrowserRouter } from 'react-router-dom';
-import ProductList from "./components/ProductList";
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import AddProduct from "./components/AddProducts";
+import ProtectedRoute from "./components/AddProducts";
 
-const App = () => {
+function App() {
+  const [isAuthorized, setAuthorized] = useState(false);
+
   return (
-    <BrowserRouter>
-        <Header />
-        <ProductList/>
-        <Footer />
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home setAuthorized={setAuthorized} />} />
+        <Route
+          path="/add-product"
+          element={
+            <ProtectedRoute isAuthorized={isAuthorized}>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
